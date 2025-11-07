@@ -12,5 +12,37 @@
   "confirm": "Confirm",
   "please.config": "Please click the top right to configure time",
   "target.remain": "Remaining until {{time}}",
-  "label.display.time": "Display Title"
+  "label.display.time": "Display Title",
+  "note": {
+    "title": "Dashboard Notes",
+    "description": "Capture the summary for this dashboard review. Submissions will be synced to the selected Base table.",
+    "placeholder": "Type your takeaway or next steps...",
+    "submit": "Submit Note",
+    "config": {
+      "title": "Storage Settings",
+      "table": "Target Table",
+      "tablePlaceholder": "Choose a Base table",
+      "noTable": "No table available in this Base",
+      "field": "Text Field",
+      "fieldPlaceholder": "Choose a text field for storing notes",
+      "noTextField": "This table has no text field yet. Please create one in Base.",
+      "selectTableFirst": "Select a table first",
+      "save": "Save Configuration"
+    },
+    "meta": {
+      "unknownTable": "Unnamed table",
+      "unknownField": "Unnamed field",
+      "unconfigured": "Please finish configuration to sync notes"
+    },
+    "status": {
+      "configRequired": "Please configure the table and field first",
+      "empty": "Please enter a note before submitting",
+      "success": "Note synced to Base",
+      "fallback": "Submission failed, please retry",
+      "saved": "Configuration saved",
+      "saveFailed": "Failed to save configuration",
+      "fieldFailed": "Failed to load fields, please check permissions",
+      "tableFailed": "Failed to load tables, please refresh"
+    }
+  }
 }

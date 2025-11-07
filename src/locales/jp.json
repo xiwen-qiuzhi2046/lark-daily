@@ -1,5 +1,5 @@
 {
-  "label.set.target": "日付と時間",
+  "label.set.target": "日時",
   "second": "秒",
   "minute": "分",
   "hour": "時間",
@@ -9,8 +9,40 @@
   "year": "年",
   "label.unit": "単位",
   "label.color": "色",
-  "confirm": "確定",
-  "please.config": "右上隅をクリックして時間を設定してください",
+  "confirm": "確認",
+  "please.config": "右上のボタンから時間を設定してください",
   "target.remain": "{{time}} まで残り",
-  "label.display.time": "表示タイトル"
+  "label.display.time": "タイトルを表示",
+  "note": {
+    "title": "ダッシュボードメモ",
+    "description": "ダッシュボードでまとめを入力し、送信すると選択した多次元表に同期されます。",
+    "placeholder": "今回の振り返りや次のアクションを入力してください...",
+    "submit": "メモを送信",
+    "config": {
+      "title": "保存設定",
+      "table": "対象テーブル",
+      "tablePlaceholder": "書き込み先のテーブルを選択してください",
+      "noTable": "この Base にはテーブルがありません",
+      "field": "テキストフィールド",
+      "fieldPlaceholder": "メモを保存するテキストフィールドを選択してください",
+      "noTextField": "このテーブルにはテキストフィールドがありません。先に多次元表で作成してください。",
+      "selectTableFirst": "先にテーブルを選択してください",
+      "save": "設定を保存"
+    },
+    "meta": {
+      "unknownTable": "未設定のテーブル",
+      "unknownField": "未設定のフィールド",
+      "unconfigured": "同期先を設定してください"
+    },
+    "status": {
+      "configRequired": "まずテーブルとフィールドを設定してください",
+      "empty": "送信前にメモを入力してください",
+      "success": "メモを多次元表に同期しました",
+      "fallback": "送信に失敗しました。再度お試しください",
+      "saved": "設定を保存しました",
+      "saveFailed": "設定の保存に失敗しました",
+      "fieldFailed": "フィールドの取得に失敗しました。権限をご確認ください",
+      "tableFailed": "テーブルの取得に失敗しました。ページを更新してください"
+    }
+  }
 }

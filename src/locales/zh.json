@@ -1,7 +1,7 @@
 {
   "label.set.target": "日期与时间",
   "second": "秒",
-  "minute": "分",
+  "minute": "分钟",
   "hour": "小时",
   "day": "天",
   "week": "周",
@@ -11,6 +11,38 @@
   "label.color": "颜色",
   "confirm": "确定",
   "please.config": "请点击右上角配置时间",
-  "target.remain": "距离 {{time}} 还剩下",
-  "label.display.time": "展示标题"
+  "target.remain": "距离 {{time}} 还剩余",
+  "label.display.time": "展示标题",
+  "note": {
+    "title": "仪表盘笔记",
+    "description": "在看板中输入总结内容，提交后会同步到已配置的多维表格文本字段。",
+    "placeholder": "输入本次复盘的结论、风险或后续行动...",
+    "submit": "提交笔记",
+    "config": {
+      "title": "存储设置",
+      "table": "目标数据表",
+      "tablePlaceholder": "请选择需要写入的多维表格",
+      "noTable": "当前 Base 暂无数据表",
+      "field": "文本字段",
+      "fieldPlaceholder": "请选择用于存储笔记的文本字段",
+      "noTextField": "该数据表暂无文本字段，请先在多维表格中创建一个",
+      "selectTableFirst": "请先选择数据表",
+      "save": "保存配置"
+    },
+    "meta": {
+      "unknownTable": "未知数据表",
+      "unknownField": "未知字段",
+      "unconfigured": "尚未配置同步数据表"
+    },
+    "status": {
+      "configRequired": "请先完成数据表与字段配置",
+      "empty": "提交前请先输入笔记内容",
+      "success": "笔记已写入多维表格",
+      "fallback": "提交失败，请稍后再试",
+      "saved": "配置已保存",
+      "saveFailed": "保存配置失败",
+      "fieldFailed": "字段加载失败，请检查权限",
+      "tableFailed": "数据表加载失败，请刷新页面"
+    }
+  }
 }
