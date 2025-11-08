@@ -1,0 +1,90 @@
+.rich-note {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rich-note__toolbar {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+  overflow-x: auto;
+}
+
+.rich-note__btn {
+  font-weight: 600;
+  display: inline-block;
+  width: 22px;
+  text-align: center;
+}
+
+.rich-note__editor {
+  min-height: 160px;
+  border: 1px solid var(--semi-color-border);
+  border-radius: 8px;
+  padding: 12px;
+  background: var(--semi-color-bg-1);
+}
+
+.rich-note__editor .ProseMirror {
+  min-height: 136px;
+  outline: none;
+  color: var(--semi-color-text-0);
+}
+.rich-note__editor .ProseMirror * {
+  color: var(--semi-color-text-0);
+}
+.rich-note__editor .ProseMirror strong {
+  font-weight: 700;
+}
+.rich-note__editor .ProseMirror em {
+  font-style: italic;
+}
+.rich-note__editor .ProseMirror h1 {
+  font-size: 24px;
+  line-height: 32px;
+  margin: 8px 0;
+}
+.rich-note__editor .ProseMirror h2 {
+  font-size: 20px;
+  line-height: 28px;
+  margin: 8px 0;
+}
+.rich-note__editor .ProseMirror h3 {
+  font-size: 18px;
+  line-height: 26px;
+  margin: 8px 0;
+}
+.rich-note__editor .ProseMirror ul,
+.rich-note__editor .ProseMirror ol {
+  padding-left: 20px;
+  margin: 8px 0;
+  list-style-position: outside;
+}
+.rich-note__editor .ProseMirror ul {
+  list-style: disc;
+}
+.rich-note__editor .ProseMirror ol {
+  list-style: decimal;
+}
+.rich-note__editor .ProseMirror ul li::marker,
+.rich-note__editor .ProseMirror ol li::marker {
+  color: var(--semi-color-text-0);
+}
+.rich-note__editor .ProseMirror blockquote {
+  border-left: 3px solid var(--semi-color-border);
+  padding-left: 12px;
+  margin: 8px 0;
+}
+.rich-note__editor .ProseMirror pre {
+  background: var(--semi-color-fill-1);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+.rich-note__editor .ProseMirror code {
+  background: var(--semi-color-fill-0);
+  border-radius: 4px;
+  padding: 0 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}

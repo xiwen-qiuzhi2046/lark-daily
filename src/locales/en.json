@@ -18,6 +18,13 @@
     "description": "Capture the summary for this dashboard review. Submissions will be synced to the selected Base table.",
     "placeholder": "Type your takeaway or next steps...",
     "submit": "Submit Note",
+    "tabs": {
+      "note": "Notes",
+      "plan": "Plan",
+      "summary": "Summary",
+      "history": "History",
+      "placeholder": "UI only; feature not implemented yet"
+    },
     "config": {
       "title": "Storage Settings",
       "table": "Target Table",
@@ -43,6 +50,9 @@
       "saveFailed": "Failed to save configuration",
       "fieldFailed": "Failed to load fields, please check permissions",
       "tableFailed": "Failed to load tables, please refresh"
+    },
+    "history": {
+      "empty": "No history notes yet"
     }
   }
 }

@@ -18,6 +18,13 @@
     "description": "在看板中输入总结内容，提交后会同步到已配置的多维表格文本字段。",
     "placeholder": "输入本次复盘的结论、风险或后续行动...",
     "submit": "提交笔记",
+    "tabs": {
+      "note": "笔记",
+      "plan": "计划",
+      "summary": "总结",
+      "history": "历史",
+      "placeholder": "此页面仅展示UI，功能暂未实现"
+    },
     "config": {
       "title": "存储设置",
       "table": "目标数据表",
@@ -43,6 +50,10 @@
       "saveFailed": "保存配置失败",
       "fieldFailed": "字段加载失败，请检查权限",
       "tableFailed": "数据表加载失败，请刷新页面"
+    }
+    ,
+    "history": {
+      "empty": "暂无历史笔记"
     }
   }
 }
