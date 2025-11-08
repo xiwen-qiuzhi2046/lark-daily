@@ -14,7 +14,7 @@
   "target.remain": "距离 {{time}} 还剩余",
   "label.display.time": "展示标题",
   "note": {
-    "title": "仪表盘笔记",
+    "title": "日报笔记",
     "description": "在看板中输入总结内容，提交后会同步到已配置的多维表格文本字段。",
     "placeholder": "输入本次复盘的结论、风险或后续行动...",
     "submit": "提交笔记",
