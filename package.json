@@ -9,6 +9,10 @@
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
+  "engines": {
+    "node": "18.x"
+  },
+  "packageManager": "pnpm@9.12.3",
   "keywords": [],
   "author": "",
   "output": "dist",
