@@ -10,7 +10,7 @@ import {
   bitable,
   dashboard,
 } from '@lark-base-open/js-sdk';
-import { Button, Empty, Select, Spin, Typography, Tabs, Card, Pagination } from '@douyinfe/semi-ui';
+import { Button, Empty, Select, Spin, Typography, Tabs, Card, Pagination, Radio, RadioGroup } from '@douyinfe/semi-ui';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { useConfig } from '../../hooks';
@@ -58,6 +58,9 @@ export default function NoteWidget({ bgColor }: NoteWidgetProps) {
   const [historyLoading, setHistoryLoading] = useState<boolean>(false);
   const [historyNotes, setHistoryNotes] = useState<{ id: string; text: string }[]>([]);
   const [historyPage, setHistoryPage] = useState<number>(1);
+  const [typeFieldId, setTypeFieldId] = useState<string>('');
+  const [typeOptions, setTypeOptions] = useState<{ id: string; name: string }[]>([]);
+  const [noteType, setNoteType] = useState<string>('笔记');
   const pageSize = 5;
 
   const configReady = Boolean(config.tableId && config.fieldId);
@@ -87,6 +90,19 @@ export default function NoteWidget({ bgColor }: NoteWidgetProps) {
       const metaList = await table.getFieldMetaList();
       const textFields = metaList.filter((field) => field.type === FieldType.Text);
       setFields(textFields);
+      const typeMeta = metaList.find((field) => field.type === FieldType.SingleSelect && field.name === '类型');
+      if (typeMeta) {
+        setTypeFieldId(typeMeta.id);
+        try {
+          const typeField = await table.getFieldById(typeMeta.id);
+          const meta = await typeField.getMeta();
+          const opts = (meta as any)?.property?.options || [];
+          setTypeOptions(opts.map((o: any) => ({ id: o.id, name: o.name })));
+        } catch {}
+      } else {
+        setTypeFieldId('');
+        setTypeOptions([]);
+      }
       return textFields;
     } catch (error) {
       console.error('[note-widget] fetch fields failed', error);
@@ -241,16 +257,21 @@ export default function NoteWidget({ bgColor }: NoteWidgetProps) {
     try {
       setSubmitting(true);
       const table = await bitable.base.getTableById(config.tableId);
-      const recordValue = {
-        fields: {
-          [config.fieldId]: [
-            {
-              type: 'text',
-              text: content,
-            },
-          ],
-        },
-      } as RecordPayload;
+      const fieldsValue: any = {
+        [config.fieldId]: [
+          {
+            type: 'text',
+            text: content,
+          },
+        ],
+      };
+      if (typeFieldId && noteType) {
+        const opt = typeOptions.find((o) => o.name === noteType);
+        if (opt) {
+          fieldsValue[typeFieldId] = { id: opt.id, text: opt.name };
+        }
+      }
+      const recordValue = { fields: fieldsValue } as RecordPayload;
       await table.addRecord(recordValue);
       setNote('');
       setNoteHtml('');
@@ -262,7 +283,7 @@ export default function NoteWidget({ bgColor }: NoteWidgetProps) {
     } finally {
       setSubmitting(false);
     }
-  }, [config.fieldId, config.tableId, noteMarkdown, showToast, t]);
+  }, [config.fieldId, config.tableId, noteMarkdown, showToast, t, noteType, typeFieldId, typeOptions]);
 
   const renderConfigPanel = () => (
     <aside className="note-widget__config">
@@ -354,14 +375,26 @@ export default function NoteWidget({ bgColor }: NoteWidgetProps) {
                     setNoteMarkdown(markdown);
                   }}
                 />
-                <Button
-                  theme="solid"
-                  block
-                  loading={submitting}
-                  onClick={handleSubmit}
-                >
-                  {t('note.submit')}
-                </Button>
+                <div className="note-widget__actions">
+                  <RadioGroup
+                    type="button"
+                    value={noteType}
+                    onChange={(val) => setNoteType(String((val as any)?.target?.value ?? val))}
+                  >
+                    <Radio value="计划">计划</Radio>
+                    <Radio value="总结">总结</Radio>
+                    <Radio value="笔记">笔记</Radio>
+                    <Radio value="卡点">卡点</Radio>
+                    <Radio value="风险">风险</Radio>
+                  </RadioGroup>
+                  <Button
+                    theme="solid"
+                    loading={submitting}
+                    onClick={handleSubmit}
+                  >
+                    {t('note.submit')}
+                  </Button>
+                </div>
               </div>
             ) : activeTab === 'history' ? (
               <div className="note-widget__history">

@@ -48,6 +48,13 @@
   margin-top: 8px;
 }
 
+.note-widget__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
 .note-widget__placeholder {
   display: flex;
   align-items: center;
